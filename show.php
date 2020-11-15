@@ -34,9 +34,9 @@ while($Result = mysqli_fetch_array($res))
 {
 ?>
   <tr>
-    <td><?php echo $Result['Name'];?></div></td>
-    <td><?php echo $Result['Comment'];?></td>
-    <td><?php echo $Result['Link'];?></td>
+    <td><?php echo <div align="center">$Result['Name'];?></div></td>
+    <td><?php echo <div align="center">$Result['Comment'];?></div></td>
+    <td><?php echo <div align="center">$Result['Link'];?></div></td>
   </tr>
 <?php
 }
