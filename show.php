@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
 body {
-  background-color: Primary;
+  background-color: rgba(172, 207, 246, 1);
 }
 </style>
 </head>
