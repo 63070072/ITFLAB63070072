@@ -9,7 +9,7 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <style>
 body {
-  background-color: DarkSlateGrey;
+  background-color: LightBlue;
 }
 </style>
 </head>
@@ -23,8 +23,8 @@ if (mysqli_connect_errno($conn))
 }
 $res = mysqli_query($conn, 'SELECT * FROM guestbook');
 ?>
-<table class="table table-dark table-hover table-bordered">
-  <tr>
+<table class="table table-hover table-bordered">
+  <tr class="table-primary">
     <th>Name</th>
     <th>Comment</th>
     <th>Link</th>
