@@ -1,40 +1,46 @@
-<!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Form</title>
+<title>ITF Lab</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<style>
-body {
-background-color: lightblue;
-}
-</style>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <style>
+  p.ex1 {
+    margin-top: 25px;
+  }
+  </style>
 </head>
 <body>
+<?php
+
+$conn = mysqli_init();
+mysqli_real_connect($conn, 'thanapon-226.mysql.database.azure.com', 'Jame@thanapon-226', 'thanapon-19245', 'ITFLab', 3306);
+if (mysqli_connect_errno($conn))
+{
+    die('Failed to connect to MySQL: '.mysqli_connect_error());
+}
+
+
+$name = $_POST['name'];
+$comment = $_POST['comment'];
+
+
+$sql = "INSERT INTO guestbook (name , Comment) VALUES ('$name', '$comment')";
+
+
+if (mysqli_query($conn, $sql)) {
+    echo "<center>New record created successfully</center>";
+  } else {
+    echo "<center>Error: </center>" . $sql . "<br>" . mysqli_error($conn);
+  }
+
+mysqli_close($conn);
+?>
 
 <div class="container">
-    <img src="img/banner/banner1.jpg" class="img-fluid" style="width:100%;max-width:1600px"/>
-  <h2 style="color:blue">Vistor Comments</h2>
-  <form action = "insert.php" method = "post" id="CommentForm" >
-    <div class="form-group" style="color:blue">
-      <label for="name">Name:</label>
-      <input type="text" class="form-control" id="CommentForm" placeholder="Enter Name" name="name">
-    </div>
-    <div class="form-group" style="color:blue">
-      <label for="link">Link:</label>
-      <input type="text" name = "link" id="idLink" class="form-control" placeholder="Enter Link">
-    </div>
-    <div style="color:blue">Comment:</div><br>
-    <textarea rows="10" cols="150" name = "comment" id="idComment" class="form-control" placeholder="Enter Comment"></textarea><br>  
-    <button type="submit" class="btn btn-primary">Submit</button>
-    <br>
-    <br>
-  </form>
+  <center><a href="show.php"><input type="button" value="Show" class="btn btn-info" class="ex1"></a></center>
 </div>
-
 </body>
 </html>
