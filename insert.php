@@ -24,10 +24,11 @@ if (mysqli_connect_errno($conn))
 
 
 $name = $_POST['name'];
+$link = $_POST['link'];
 $comment = $_POST['comment'];
 
 
-$sql = "INSERT INTO guestbook (name , Comment) VALUES ('$name', '$comment')";
+$sql = "INSERT INTO guestbook (name , Comment, Link) VALUES ('$name', '$comment', '$link')";
 
 
 if (mysqli_query($conn, $sql)) {
