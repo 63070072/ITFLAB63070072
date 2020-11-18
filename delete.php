@@ -24,13 +24,11 @@ if (mysqli_connect_errno($conn))
 
 
 $name = $_POST['name'];
-$comment = $_POST['comment'];
+$sql = "DELETE FROM guestbook WHERE name='$name'";
 
-
-$sql = "DELETE guestbook SET comment='$comment' WHERE name='$name'";
 
 if (mysqli_query($conn, $sql)) {
-    echo "<center>Edit Successfully</center>";
+    echo "<center>Delete Successfully</center>";
   } else {
     echo "<center>Error: </center>" . $sql . "<br>" . mysqli_error($conn);
   }
