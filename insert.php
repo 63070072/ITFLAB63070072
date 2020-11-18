@@ -33,9 +33,9 @@ $sql = "INSERT INTO guestbook (Name , Comment , Link) VALUES ('$name', '$comment
 
 if (mysqli_query($conn, $sql)) {
   
-    echo "New record created successfully";
+    echo "<center>New record created successfully</center>";
   } else {
-    echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+    echo "<center>Error:</center> " . $sql . "<br>" . mysqli_error($conn);
   }
   
 mysqli_close($conn);
