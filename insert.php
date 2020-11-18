@@ -18,17 +18,17 @@
 $conn = mysqli_init();
 mysqli_real_connect($conn, 'tanadon.mysql.database.azure.com', 'tanadonparosin@tanadon', 'Nexus404', 'itflab', 3306);
 if (mysqli_connect_errno($conn))
+if (mysqli_connect_errno($conn))
 {
     die('Failed to connect to MySQL: '.mysqli_connect_error());
 }
 
 
 $name = $_POST['name'];
-$link = $_POST['link'];
 $comment = $_POST['comment'];
 
 
-$sql = "INSERT INTO guestbook (name , Comment, Link) VALUES ('$name', '$comment', '$link')";
+$sql = "INSERT INTO guestbook (name , Comment) VALUES ('$name', '$comment')";
 
 
 if (mysqli_query($conn, $sql)) {
